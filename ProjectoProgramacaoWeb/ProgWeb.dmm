@@ -1784,7 +1784,7 @@
 					"datatype": "datetime",
 					"param": "",
 					"pk": false,
-					"nn": false,
+					"nn": true,
 					"fk": false,
 					"comment": "",
 					"defaultvalue": "",
