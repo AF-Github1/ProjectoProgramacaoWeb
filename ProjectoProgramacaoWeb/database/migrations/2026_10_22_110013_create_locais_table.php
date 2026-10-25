@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Locais', function (Blueprint $table) {
+        Schema::create('locais', function (Blueprint $table) {
             $table->id('id_local');
             $table->string('morada');
-            $table->string('nome');
+            $table->string('nome')->nullable();
             $table->string('tipo');
+            $table->string('codigo_postal');
+            $table->decimal('latitude', 10, 8);
+            $table->decimal('longitude', 11, 8);
         });
     }
 
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Locais');
+        Schema::dropIfExists('locais');
     }
 };

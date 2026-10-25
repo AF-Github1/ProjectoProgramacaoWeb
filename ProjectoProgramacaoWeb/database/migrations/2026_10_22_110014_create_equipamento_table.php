@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Equipamento', function (Blueprint $table) {
-            $table->id('id_equipamento');
-            $table->foreignId('id_local')->constrained('Locais', 'id_local')->cascadeOnDelete();
-            $table->string('nome');
-            $table->string('tipo');
-            $table->date('data_adquirido');
-            $table->decimal('preco_por_unidade_tempo', 8, 2);
-            $table->string('estado');
+        Schema::create('equipamento', function (Blueprint $table) {
+        $table->id('pin');
+        $table->foreignId('cat_code')->constrained('especificacao', 'cat_code');
+        $table->foreignId('id_local')->constrained('locais', 'id_local');
+        $table->date('data_adquirido');
+        $table->string('descricao')->nullable();
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Equipamento');
+        Schema::dropIfExists('equipamento');
     }
 };

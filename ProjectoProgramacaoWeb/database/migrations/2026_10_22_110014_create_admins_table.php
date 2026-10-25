@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('email');
             $table->string('password');
-            $table->string('tipo');
+            $table->string('permissoes');
         });
     }
 
