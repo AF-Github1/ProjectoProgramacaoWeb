@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('EquipamentoPedido', function (Blueprint $table) {
-            $table->id('id_pedido');
-            $table->foreignId('id_registo')->constrained('registo_aluguer', 'id_registo')->cascadeOnDelete();
-            $table->foreignId('pin')->constrained('equipamento', 'pin')->cascadeOnDelete();
+        Schema::create('category', function (Blueprint $table) {
+            $table->integer('id_category')->autoIncrement();
+            $table->string('name');
+            $table->string('description')->nullable();
         });
     }
 
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('EquipamentoPedido');
+        Schema::dropIfExists('category');
     }
 };
